@@ -8,16 +8,23 @@ start_positions = [int(x) for x in start_positions]
 # get position of submarine farthest from zero
 max_position = max(start_positions)
 
+#brute force variant
 def fuel_sum(n):
   x = sum([i for i in range(1, n+1)])
   return x
+
+# Arithmetic progression variant (Gaussův součet aritmetické posloupnosti)
+def fuel_sum_type2(n):
+  x = (n*(1+n))/2
+  return int(x)
+
 
 meeting_points_distances = []
 for possible_meeting_point in range(0, max_position):
   position_distances = 0
   for position in start_positions:
     distance = abs(position-possible_meeting_point)
-    fuel = fuel_sum(distance)
+    fuel = fuel_sum_type2(distance)
     position_distances = position_distances + fuel
 
   meeting_points_distances.append(position_distances)
