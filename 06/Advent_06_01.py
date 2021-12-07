@@ -8,7 +8,7 @@ initial_state = [int(x) for x in file_content]
 #print("initial_state", initial_state)
 
 # set number of iterations
-number_of_iterations = 80
+number_of_iterations = 64
 
 # substracts one from the previous state
 def remove_one_from_state(state):
