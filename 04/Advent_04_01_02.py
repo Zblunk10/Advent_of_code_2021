@@ -62,4 +62,14 @@ while x<500:
 
 
 resulting_DF = pd.DataFrame.from_dict(results)
-print(resulting_DF.sort_values(by="Latest_matched_index").head())
+#part 1
+print("Part one solution table:")
+print(resulting_DF.sort_values(by="Latest_matched_index").iloc[0])
+
+tablex = resulting_DF.groupby(["Table_number"], as_index="test")["Latest_matched_index"].min()
+
+table95 = resulting_DF[resulting_DF["Table_number"] == 95]
+
+#part 2
+print("Part two solution table:")
+print(table95.sort_values(by="Latest_matched_index").iloc[0])
